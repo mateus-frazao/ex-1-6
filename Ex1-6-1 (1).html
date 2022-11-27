@@ -1,0 +1,222 @@
+<html>
+
+    <head>
+    </head>
+
+    <body>
+        <form name="formulario">
+        <b>String:</b> <input type="string" name="string" size="30"  /><br><br>
+        <b>Multp:</b> <input type="string" name="mult" size="30"  /><br><br>
+        <input value="Exe1a" type="button" onclick="func1a();">
+        <input value="Exe1b" type="button" onclick="func1b();">
+        <input value="Exe2" type="button" onclick="func2();">
+        <input value="Exe3" type="button" onclick="func3();">
+        <input value="Exe4" type="button" onclick="func4();">
+        <input value="Exe5" type="button" onclick="func5();">
+        <input value="Exe6" type="button" onclick="func6();">
+        <br>
+        <br>
+        
+
+
+     </form>
+
+        
+    </body>
+
+    <script language="javascript" >
+        
+      function func1a()
+      {
+        var s1;
+
+        s1 = document.formulario.string.value;
+
+        document.write("<table border='2'><tr>");
+            for(i=0; i < s1.length; i++)
+            {
+                document.write("<td>"+ s1.charAt(i) +"</td>");
+            }
+
+        document.write("</tr></table>");
+      }
+      
+      function func1b()
+    {
+      var s1;
+
+      s1 = document.formulario.string.value;
+
+      document.write("<table border='2'>");
+      for(i=0; i < s1.length; i++)
+      {
+        document.write("<tr><td>"+ s1.charAt(i) +"</td></tr>");
+      }
+
+      document.write("</table>");
+    }
+
+      function func2()
+      {
+        var s1, s2;
+
+        s1 = document.formulario.string.value;
+          
+        s2 = document.formulario.mult.value;
+
+        document.write("<table border='2'><tr>");
+          document.write("<td>");  
+        for(i=0; i < s2; i++)
+        {
+        document.write( s1 );
+        }
+        document.write("</td>");
+        document.write("</tr></table>");
+          
+      }
+
+      function func3()
+      {
+        var s1, vog, cons, outr, num;
+        vog=0;cons=0;outr=0;num=0;
+         
+        s1 = document.formulario.string.value;
+        s1 = s1.toLowerCase();
+        
+        for(i=0; i < s1.length; i++)
+        {
+          digito = s1.charAt(i);
+
+          switch(digito)
+          {
+            case "0":
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+            case "5":
+            case "6":
+            case "7":
+            case "8":
+            case "9":  
+            num++;
+            break;
+
+            case "a":
+            case "e":
+            case "i":
+            case "o":
+            case "u":
+            vog++
+            break;
+            
+            case "b":
+            case "c":
+            case "d":
+            case "f":
+            case "g":
+            case "h":
+            case "i":
+            case "j":
+            case "k":
+            case "l":
+            case "m":
+            case "n":
+            case "p":
+            case "q":
+            case "r":
+            case "s":
+            case "t":
+            case "v":
+            case "w":
+            case "x":
+            case "y":
+            case "z":  
+            case "ç":
+            cons++;
+            break;
+
+            default:
+            outr++;
+          }
+        }
+         
+        document.write("<table border=1>");
+        document.write("<tr><td>Quantidade de Vogais: </td><td>" + vog + "</td></tr>");
+        document.write("<tr><td>Quantidade de Consoantes: </td><td>" + cons + "</td></tr>");
+        document.write("<tr><td>Quantidade de Dígitos: </td><td>" + num + "</td></tr>");
+        document.write("<tr><td>Quantidade de Outros Caracteres: </td><td>" + outr + "</td></tr>");
+        document.write("</table>");
+      }
+
+      function func4()
+      {
+        var s1,s2, palindromo="";
+
+        s2="";
+
+        s1 = document.formulario.string.value;
+        for (i=0; i < s1.length; ++i)
+        {
+          if(s1[i]!=" "){
+            s2+=s1[i];
+          }
+        }
+        s2= s2.toLowerCase();
+
+        for(var i=s2.length-1; i >=0;i-- )
+        {
+          palindromo+=s2[i]
+        }
+        
+          if (s2==palindromo)
+          {
+            document.write( " Sim, sou um palíndromo");
+          }
+          else{
+            document.write( "Não sou um palíndromo");
+          }
+
+      }
+
+      function func5()
+      {
+        var s1, aux, aux2, aux3;
+
+        s1 = document.formulario.string.value;
+        aux = s1.lastIndexOf(" ");
+        aux2 = s1.substring(aux, s1.length) + ", ";
+        aux3 = s1.substring(0, aux);
+        document.write(aux2.concat(aux3));
+
+      }
+
+      function func6()
+      {
+        var texto, numAux, numAux2, aux1, aux2, b, i, a;
+
+        texto = document.formulario.string.value;
+        numAux = texto.lastIndexOf(" ");
+        aux1 = texto.substring(numAux, texto.length) + ", ";
+        b = aux1.toUpperCase();
+        numAux2 = texto.indexOf(" ");
+        aux2 = texto.substring(0, numAux2);
+        b += aux2 + " ";
+        
+        for (i = numAux2; i <= numAux; i++)
+        {
+          if (texto.charCodeAt(i) >= 65 && texto.charCodeAt(i) <= 90)
+          {
+          a = texto.charAt(i);
+          b += a + ". ";
+          }
+        }
+        document.write(b);
+      }
+
+      
+
+
+    </script>
+
+</html>
